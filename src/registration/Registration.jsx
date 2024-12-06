@@ -123,7 +123,7 @@ export default function Registration() {
     phonenum: '',
     email: '',
     password: '',
-    password1: ''
+    password1: '',
   });
 
   // Regular expressions for validation
@@ -141,19 +141,24 @@ useEffect(()=>{})
     if (!phoneRegex.test(userdata.phonenum)) {
       alert("Phone number is invalid.");
       return false;
-    } else if (!passwordRegex.test(userdata.password)) {
+    }
+     else if (!passwordRegex.test(userdata.password)) {
       alert("Password is invalid.");
       return false;
-    } else if (!lettersOnlyRegex.test(userdata.firstname))  {
+    } 
+    else if (!lettersOnlyRegex.test(userdata.firstname))  {
       alert("First name contains invalid characters.");
       return false;
-    } else if (!lettersOnlyRegex.test(userdata.lastname)) {
+    } 
+    else if (!lettersOnlyRegex.test(userdata.lastname)){
       alert("Last name contains invalid characters.");
       return false;
-    } else if (userdata.password !== userdata.password1) {
+    } 
+    else if (userdata.password !== userdata.password1) {
       alert("Passwords do not match.");
       return false;
-    } else {
+    } 
+    else {
       return true;
     }
   };
