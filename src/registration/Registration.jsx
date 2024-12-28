@@ -1,118 +1,4 @@
-// import React from "react";
-// import { useState } from "react";
-// import axios from "axios";
 
-
-
-// export default function Registration(){
-
-//    var[userdata,setuserdata]=useState({
-//       firstname:'',
-//       lastname:'',
-//       phonenum:'',
-//       email:'',
-//       password:'',
-//       password1:'',
-      
-//    })
-//    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-
-//    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
-//    const lettersOnlyRegex = /^[A-Za-z]+$/;
-
-
-
-//    const sprfunction=(e)=>{
-// setuserdata({...userdata,[e.target.name]:e.target.value})
-//    }
-//    const clientvalidation=()=>{
-//       if (phoneRegex.test(userdata.phonenum)){
-//          alert("phone number wrong")
-//          return false;
-//       }
-//       else if(passwordRegex.test(userdata.password)){
-//          alert("password wrongs")
-//          return false;
-//       }
-//       else if(lettersOnlyRegex.test(userdata.firstname)){
-//          alert("contains wrong for first name")
-//          return false;
-//       }
-//       else if(userdata.password !=userdata.password1){
-//          alert("enter the Password correctly")
-//       }
-//       else {
-//          return true;
-         
-//       }
-      
-//    }
-//    let formSubmit=(e)=>{
-//      e.preventDefault()
-//      if (clientvalidation()){
-//       //   axios.post("",userdata)
-//         alert("values entered successfully")
-//         console.log(userdata)
-//      }
-//      console.log(userdata)
-//    //   setuserdata({
-//    //    firstname:'',
-//    //    lastname:'',
-//    //    phonenum:'',
-//    //    email:'',
-//    //    password:'',
-//    //    password1:'',
-//    //    conformpassword:''
-//    // })
-//    }
-// return(
-//     <div className="container p-2 mt-5 w-25 shadow-lg rounded bg-light">
-//         <h1 className="text-center text-secondary">Documentation</h1>
-//         <form onSubmit={(e)=>formSubmit(e)}>
-//      <div className="mb-3">
-//         <label for="first_name" className="form-label">First_Name</label>
-//         <input type="text" className="form-control" id="first_name" placeholder="Enter Your First Name" name="firstname"  required value={userdata.firstname} onChange={(e)=>sprfunction(e)}/>
-//         <div className="">{userdata.firstname.length >0 && (!lettersOnlyRegex.test(userdata.firstname))&& <p className="text-danger">Numbers and spaces are not allowed</p>}</div>
-//      </div>
-//      <div className="mb-3">
-//         <label for="last_name" className="form-label">
-//             Last_Nam
-//         </label>
-//         <input type="text" className="form-control" id="last_name" name="lastname" placeholder="Enter your Last Name" required value={userdata.lastname} onChange={(e)=>sprfunction(e)}/>
-//         <div className="">{userdata.lastname.length >0 && (!lettersOnlyRegex.test(userdata.lastname))&& <p className="text-danger">Numbers and spaces are not allowed</p>}</div>
-
-//      </div>
-//      <div className="mb-3">
-//         <label for="email" className="form-label">Email</label>
-//         <input type="email" 
-//         id="email" className="form-control" name="email" placeholder="xyz@email.com" required value={userdata.email} onChange={(e)=>sprfunction(e)}/>
-        
-//      </div>
-//      <div className="mb-3">
-//       <label for="phonenumber" className="form-label">Phone Number</label>
-//       <input type="tel" className="form-control" id="phonenumber" name="phonenum" placeholder="Enter your mobile number...+91-" maxLength={10} value={userdata.phonenum} onChange={(e)=>sprfunction(e)}/>
-//       <div className="">{userdata.phonenum.length >0 && (lettersOnlyRegex.test(userdata.phonenum))&& <p className="text-danger"> and spaces are not allowed</p>}</div>
-
-//      </div>
-//      <div className="mb-3">
-//         <label for="password" className="form-label">Password</label>
-//         <input type="password" className="form-control" placeholder="Password must be 8" name="password" id="password" required value={userdata.password} onChange={(e)=>sprfunction(e)}/>
-//         <div className="">{userdata.password.length >0 && (passwordRegex.test(userdata.password)) && <p className="text-danger">ENTER</p>}</div>
-
-//      </div>
-//      <div className="mb-3">
-//         <label for="conform_password" className="form-label">
-//             Conform-Password
-//         </label>
-//         <input type="password" className="form-control" id="conform-password" name="password1" placeholder="re-enter password" required value={userdata.password1} onChange={(e)=>sprfunction(e)}/>
-//      </div>
-//      <div className="d-flex justify-content-center">
-//           <button type="submit" className="btn btn-primary">Register</button>
-//         </div>        </form>
-        
-//     </div>
-// )
-// }
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -126,17 +12,16 @@ export default function Registration() {
     password1: '',
   });
 
-  // Regular expressions for validation
   const phoneRegex = /^[0-9]{10}$/;
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
   const lettersOnlyRegex = /^[A-Za-z]+$/;
 
-  // Handle form data change
+
   const sprfunction = (e) => {
     setuserdata({ ...userdata,[e.target.name]: e.target.value });
   };
 useEffect(()=>{})
-  // Client-side validation function
+  
   const clientvalidation = () => {
     if (!phoneRegex.test(userdata.phonenum)) {
       alert("Phone number is invalid.");
@@ -163,7 +48,7 @@ useEffect(()=>{})
     }
   };
 
-  // Form submission
+ 
   const formSubmit = (e) => {
     e.preventDefault();
     if (clientvalidation()) {
